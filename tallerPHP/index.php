@@ -11,18 +11,18 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="submit" value="Mostrar Planetas Habitables" class="btn-submit">
+        <input type="submit" value="Mostrar Gravedad Planetas" class="btn-submit">
     </form>
     <div class="result">
         <?php
-            if (isset($_GET['planetasHabitables'])) {
+            if (isset($_GET['gravedadPlanetas'])) {
                 // Decodificar el parámetro 'planetas' para obtener el array original
-                $planetas = urldecode($_GET['planetasHabitables']);
+                $planetas = urldecode($_GET['gravedadPlanetas']);
                 // Convertir la cadena codificada en formato JSON a un array asociativo
                 $planetas = json_decode($planetas, true);
                 // Recorrer el array y mostrar los valores
-                foreach ($planetas as $planeta => $estado) {
-                    echo 'Planeta ' . $planeta;
+                foreach ($planetas as $planeta => $gravedad) {
+                    echo 'la gravedad del planeta ' . $planeta . ' es de ' . $gravedad . '<br> <br>';
                 }
             }
         ?>
