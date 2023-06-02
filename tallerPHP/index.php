@@ -11,7 +11,7 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="text" class="inp-Text" name="nombre" placeholder="Nombre del planeta para verificar si existe">
+        <input type="text" class="inp-Text" name="nombre" placeholder="Tipo de nave  para verificar si existe">
         <input type="submit" value="Verificar existencia" class="btn-submit">
     </form>
     <div class="result">
