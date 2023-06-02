@@ -1,20 +1,23 @@
 <?php
 
-    $planetas = array(
-        'sol' => 1,
-        'mercurio'  => 2,
-        'venus' => 3,
-        'tierra' => 4,
-        'marte' => 5,
-        'jupiter' => 6,
-        'saturno' => 7, 
-        'urano' => 8,
-        'neptuno' => 9
-    );
+$planetas = array(
+    'planeta1' => 'deshabitado',
+    'planeta2' => 'deshabitado',
+    'planeta3' => 'deshabitado',
+    'planeta4' => 'deshabitado',
+    'planeta5' => 'deshabitado',
+    'planeta6' => 'deshabitado',
+    'planeta7' => 'deshabitado',
+);
 
-    $planetaSeleccionado = array_flip($planetas)[intval($_POST['numero'])];
 
-    header('Location: index.php?planetaSeleccionado=' . urlencode($planetaSeleccionado))
+/**
+ * La función json_encode en PHP se utiliza para convertir un valor PHP en una cadena JSON. 
+ * Toma como entrada un valor de cualquier tipo compatible con JSON, como un array asociativo, un array indexado o un objeto
+ * y devuelve una representación JSON de ese valor.
+ */
+$planetasJson = json_encode($planetas);
+header('Location: index.php?planetas=' . urlencode($planetasJson));
     
 
 ?>
