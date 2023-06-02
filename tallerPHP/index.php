@@ -11,19 +11,14 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="submit" value="Mostrar Gravedad Planetas" class="btn-submit">
+        <input type="submit" value="Calcular Masa total" class="btn-submit">
     </form>
     <div class="result">
         <?php
-            if (isset($_GET['gravedadPlanetas'])) {
+            if (isset($_GET['masaTotal'])) {
                 // Decodificar el parámetro 'planetas' para obtener el array original
-                $planetas = urldecode($_GET['gravedadPlanetas']);
-                // Convertir la cadena codificada en formato JSON a un array asociativo
-                $planetas = json_decode($planetas, true);
-                // Recorrer el array y mostrar los valores
-                foreach ($planetas as $planeta => $gravedad) {
-                    echo 'la gravedad del planeta ' . $planeta . ' es de ' . $gravedad . '<br> <br>';
-                }
+                $masaTotal = urldecode($_GET['masaTotal']);
+                echo 'La masa total de las naves es de ' . $masaTotal . ' toneladas';
             }
         ?>
     </div>
