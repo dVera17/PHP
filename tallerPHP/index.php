@@ -11,14 +11,15 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="submit" value="Calcular Masa total" class="btn-submit">
+        <input type="text" class="inp-Text" name="nombre" placeholder="Nombre del planeta para verificar si existe">
+        <input type="submit" value="Verificar existencia" class="btn-submit">
     </form>
     <div class="result">
         <?php
-            if (isset($_GET['masaTotal'])) {
+            if (isset($_GET['existencia'])) {
                 // Decodificar el parámetro 'planetas' para obtener el array original
-                $masaTotal = urldecode($_GET['masaTotal']);
-                echo 'La masa total de las naves es de ' . $masaTotal . ' toneladas';
+                $existencia = urldecode($_GET['existencia']);
+                echo $existencia;
             }
         ?>
     </div>

@@ -1,15 +1,20 @@
 <?php
 
-    $flota = array(
-        'nave1' => 50,
-        'nave2'  => 100,
-        'nave3' => 150,
-        'nave4' => 200,
-        'nave5' => 250
-    );
+    $planetas = [
+        'sol',
+        'mercurio',
+        'venus',
+        'tierra',
+        'marte',
+        'jupiter',
+        'saturno',
+        'urano', 
+        'neptuno'
+    ];
 
-    $masaTotal = array_sum($flota);
-
-    header('Location: index.php?masaTotal=' . urlencode($masaTotal));
+    $existencia = '';
+    if(in_array(strtolower(($_POST['nombre'])), $planetas)) $existencia = 'El planeta existe';
+    else $existencia = 'El planeta NO existe';
+    header('Location: index.php?existencia=' . urlencode($existencia));
     
 ?>

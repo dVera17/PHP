@@ -15,12 +15,21 @@
 }
 
 .form{
-    background-color: rebeccapurple;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-Text{
+    width: 20rem;
+    height: 2rem;
 }
 
 .btn-submit{
     width: 12rem;
     background-color: greenyellow;
     height: 2rem;
+    margin: 1rem;
 }
