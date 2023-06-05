@@ -396,4 +396,187 @@ $a=array("a"=>"red","b"=>"green","c"=>"blue");
 array_walk($a,"myfunction");
 print_r($a);
 
+/**
+ * todo ISSET Y EMPTY
+ * ISSET es utilizado para verificar si una variable o dato existe en la ram, es decir, verifica si está definida y tiene un
+ * valor diferente de NULL;
+ * EMPTY es utilizado para verificar si dicha variable tiene un valor asignado; 
+*/
+
+$variablePrueba = 'Hola'; 
+if(isset($variablePrueba)){
+    echo 'La variable está definida y tiene un valor';
+} else echo 'La variable no está definida o no tiene valor';
+
+$variablePrueba2 = ''; 
+if(empty($variablePrueba2)){
+    echo 'La variable está vacia o no esta definida';
+} else echo 'La variable tiene un valor';
+
+$clientes = [];
+$clientes2 = array();
+$clientes3 = array('Daniel', 'Santiago', 'David');
+$clientes4 = [
+    'nombre' => 'Juan',
+    'saldo' => 200
+];
+
+/**
+ * ! EMPTY revisa si el arreglo está vacio
+*/
+
+var_dump(empty($clientes));
+var_dump(empty($clientes2));
+var_dump(empty($clientes3));
+var_dump(empty($clientes4));
+
+/**
+ * ! ISSET - Revisamos si el arreglo está creado o una propiedad está definida
+*/
+
+var_dump(isset($clientes));
+var_dump(isset($clientes2));
+var_dump(isset($clientes3));
+var_dump(isset($clientes4));
+
+/**
+ * ? Ordenar los elementos de un array
+ * ! Sort - Es utilizado para ordenar los elementos de menor a mayor
+ * ! rSort - Es utilizado para ordenar los elementos de mayor a menor
+*/
+
+$arrayNumerico = array(1,2,4,5,8,7,3,9);
+sort(($arrayNumerico));
+var_dump($arrayNumerico);
+rsort(($arrayNumerico));
+var_dump($arrayNumerico);
+
+/**
+ * todo Ordenar arreglo asociativo
+ * 
+*/
+
+$clienteOrden = array(
+    'saldo' => 200,
+    'tipo' => 'Premium',
+    'nombre' => 'Juan'
+);
+
+asort($clienteOrden); // Ordena por valores (orden alfabetico)
+arsort(($clienteOrden)); // Ordena por valores (z primero)
+ksort($clienteOrden); // Ordena por llaves en orden alfabetico
+krsort(($clienteOrden)); // Ordena por valores por orden alfabetico de la Z a la A
+var_dump($clienteOrden);    
+
+/**
+ * todo ESTRUCTURAS DE CONTROL
+ * Son herramientas utilizadas para controlar el orden de ejecucion de un programa.
+ * las estructuras de control mas comunes en programación son: 
+ *  IF - ELSE IF - ELSE
+ *  WHILE - DO WHILE
+ *  SWITCH CASE
+ *  TRY CATCH
+*/
+
+/**
+ * todo ESTRUCTURAS CONDICIONALES
+ * Este tipo de estructuras permite que el programa pueda tomar desiciones basadas en si se cumpple
+ * una desición o no
+*/
+/**
+ * ! IF - ELSE IF - ELSE
+*/
+
+if(5 < 10){
+    echo '5 es menor que 10';
+} else if(12 > 10){
+    echo '12 es mayor que 10'  ;
+} else echo ' 10 es menor que 5';
+
+/**
+ * ! SWITCH - CASE
+ * 
+ * switch (expresion) {
+        case valor1:
+            // bloque de código si la expresión es igual a valor1
+            break;
+        case valor2:
+            // bloque de código si la expresión es igual a valor2
+            break;
+        default:
+            // bloque de código si la expresión no coincide con ninguno de los valores anteriores
+            break;
+    }
+*/
+
+$opcionSwitch = 'A';
+
+switch($opcionSwitch) {
+    case 'A':
+        echo 'La opcion es la A';
+        break;
+    case 'B':
+        echo 'La opcoin es la B';
+        break;
+    default:
+        echo 'La opcion es ninguna de las anteriores';
+        break;
+}
+
+/**
+ * ? Estructuras repetitivas
+*/
+
+/**
+ * todo BUCLE WHILE
+ * 
+ * Bucle while: permite repetir la ejecución de un bloque de código mientras se cumpla una condición.
+ * 
+ * while(condicion){
+ *     Se ejecuta el codigo mientras que la condicion se cumpla
+ * }
+*/
+
+/**
+ * todo BUCLE DO WHILE
+ * 
+ * Bucle do-while: similar al bucle while, pero garantiza que el bloque de código
+ * se ejecuta almenos una vez, independientemente de si se cumple o no la condición.
+ * 
+ * do{
+ *     se ejecuta codigo almenos una vez
+ * }while();
+*/
+
+/**
+ * todo BUCLE FOR
+ * 
+ * Bucle for: permite repetir la ejecución de un bloque de código un número fijo de veces, 
+ * controlando el número de iteraciones mediante un contador.
+ * 
+ * for($i = 0, i < 5, i++){
+ * 
+ * }
+*/
+
+/**
+ * todo BUCLE FOREACH
+*/
+
+$cliente52 = array(
+    'saldo' => 200,
+    'tipo' => 'Premium',
+    'nombre' => 'Juan'
+);
+
+foreach($cliente52 as $cliente){
+    echo $cliente;
+}
+
+foreach($cliente as $key => $valor){
+    echo $key . ' - ' . $valor;
+}
+
+
+
 ?>
