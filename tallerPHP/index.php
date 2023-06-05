@@ -11,14 +11,13 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="submit" value="Encontrar Misión" class="btn-submit">
+        <input type="submit" value="Especies alienigenas" class="btn-submit">
     </form>
     <div class="result">
         <?php
-            if (isset($_GET['planetas'])) {
-                // Decodificar el parámetro 'planetas' para obtener el array original
-                $planetas = urldecode($_GET['planetas']);
-                echo 'Explorador, tu mision es en el planeta -> ' . $planetas;
+            if (isset($_GET['noDuplicado'])) {
+                $especiesAlienigenas = urldecode($_GET['noDuplicado']);
+                echo $especiesAlienigenas;
             }
         ?>
     </div>
