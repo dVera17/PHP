@@ -1,36 +1,17 @@
 <?php
 
-$satelite=$_POST['satelite'];
-$planeta=$_POST['planeta'];
+    $sistemaSolar = array(
+        'sol',
+        'mercurio',
+        'venus',
+        'tierra',
+        'marte',
+        'jupiter',
+        'saturno',
+        'urano',
+        'neptuno'
+    );
 
-$planetas=[
-  "Mercurio"=> [
-    "satelites"=>[]
-  ],
-  "Venus"=> [
-    "satelites"=>[]
-  ],
-  "Tierra"=> [
-    "satelites"=>[]
-  ],
-  "Marte"=> [
-    "satelites"=>[]
-  ],
-  "Jupiter"=> [
-    "satelites"=>[]
-  ],
-  "Saturno"=> [
-    "satelites"=>[]
-  ],
-  "Urano"=> [
-    "satelites"=>[]
-  ],
-  "Neptuno"=> [
-    "satelites"=>[]
-  ]
-];
-
-array_push($planetas[$planeta]['satelites'],$satelite);
-header('Location: index.php?existe=' . urlencode(json_encode($planetas[$planeta]['satelites'])) . '&planeta=' . urlencode(json_encode($planetas)));
-    
+    $ordenDescendente = array_reverse($sistemaSolar);
+    header('Location: index.php?ordenDescendente=' . urlencode(json_encode($ordenDescendente)));
 ?>
