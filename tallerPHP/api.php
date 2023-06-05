@@ -1,30 +1,36 @@
 <?php
 
-    $sistemaSolar1 = array(
-        'sol',
-        'mercurio',
-        'venus',
-        'tierra',
-        'marte',
-        'jupiter',
-        'saturno',
-        'urano',
-        'neptuno'
-    );
+$satelite=$_POST['satelite'];
+$planeta=$_POST['planeta'];
 
-    $sistemaSolar2 = array(
-        'sol',
-        'sol1',
-        'pluton',
-        'estrella',
-        'planetas52',
-        'luna',
-        'saturno',
-        'urano',
-        'neptuno'
-    );
+$planetas=[
+  "Mercurio"=> [
+    "satelites"=>[]
+  ],
+  "Venus"=> [
+    "satelites"=>[]
+  ],
+  "Tierra"=> [
+    "satelites"=>[]
+  ],
+  "Marte"=> [
+    "satelites"=>[]
+  ],
+  "Jupiter"=> [
+    "satelites"=>[]
+  ],
+  "Saturno"=> [
+    "satelites"=>[]
+  ],
+  "Urano"=> [
+    "satelites"=>[]
+  ],
+  "Neptuno"=> [
+    "satelites"=>[]
+  ]
+];
 
-    $planetasUnicos = array_diff($sistemaSolar1, $sistemaSolar2);
-    header('Location: index.php?planetasUnicos=' . urlencode(json_encode($planetasUnicos)));
+array_push($planetas[$planeta]['satelites'],$satelite);
+header('Location: index.php?existe=' . urlencode(json_encode($planetas[$planeta]['satelites'])) . '&planeta=' . urlencode(json_encode($planetas)));
     
 ?>
