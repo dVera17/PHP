@@ -1,22 +1,30 @@
 <?php
 
-    $especiesAlienigenas = array(
-        'especiesAlienigena1',
-        'especiesAlienigena2',
-        'especiesAlienigena3',
-        'especiesAlienigena4',
-        'especiesAlienigena5',
-        'especiesAlienigena6',
-        'especiesAlienigena7',
-        'especiesAlienigena8',
-        'especiesAlienigena9',
-        'especiesAlienigena9',
-        'especiesAlienigena1'
+    $sistemaSolar1 = array(
+        'sol',
+        'mercurio',
+        'venus',
+        'tierra',
+        'marte',
+        'jupiter',
+        'saturno',
+        'urano',
+        'neptuno'
     );
 
-    $noDuplicado = array_unique($especiesAlienigenas);
+    $sistemaSolar2 = array(
+        'sol',
+        'sol1',
+        'pluton',
+        'estrella',
+        'planetas52',
+        'luna',
+        'saturno',
+        'urano',
+        'neptuno'
+    );
 
-    header('Location: index.php?especiesAlienigenas=' . urlencode(json_encode($especiesAlienigenas)));
-    header('Location: index.php?noDuplicado=' . urlencode(json_encode($noDuplicado)));
+    $valoresComunes = array_intersect($sistemaSolar1, $sistemaSolar2);
+    header('Location: index.php?valoresComunes=' . urlencode(json_encode($valoresComunes)));
     
 ?>
