@@ -1,17 +1,19 @@
 <?php
 
-    $tipoNave = array(
-        'tipo1',
-        'tipo2',
-        'tipo3',
-        'tipo4',
-        'tipo5'
+    $planetas = array(
+        'sol',
+        'mercurio',
+        'venus',
+        'tierra',
+        'marte',
+        'jupiter',
+        'saturno',
+        'urano',
+        'neptuno'
     );
     
-    $existencia = '';
-    if(in_array(strtolower(str_replace(' ', '',$_POST['nombre'])), $tipoNave)) $existencia = 'El tipo de nave EXISTE';
-    else $existencia = 'El tipo de nave NO EXISTE';
+    $clavePlaneta = array_rand($planetas, 1);
 
-    header('Location: index.php?existencia=' . urlencode(json_encode($existencia)));
+    header('Location: index.php?planetas=' . urlencode(json_encode($planetas[$clavePlaneta])));
     
 ?>
