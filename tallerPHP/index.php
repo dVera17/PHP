@@ -11,13 +11,13 @@
 <body>
 <div class="contenedor">
     <form action="api.php" method='POST' class="form">
-        <input type="submit" value="Valores comunes sistema solar" class="btn-submit">
+        <input type="submit" value="Planetas unicos" class="btn-submit">
     </form>
     <div class="result">
         <?php
-            if (isset($_GET['valoresComunes'])) {
-                $valoresComunes = urldecode($_GET['valoresComunes']);
-                echo $valoresComunes;
+            if (isset($_GET['planetasUnicos'])) {
+                $planetasUnicos = urldecode($_GET['planetasUnicos']);
+                echo $planetasUnicos;
             }
         ?>
     </div>

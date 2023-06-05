@@ -24,7 +24,7 @@
         'neptuno'
     );
 
-    $valoresComunes = array_intersect($sistemaSolar1, $sistemaSolar2);
-    header('Location: index.php?valoresComunes=' . urlencode(json_encode($valoresComunes)));
+    $planetasUnicos = array_diff($sistemaSolar1, $sistemaSolar2);
+    header('Location: index.php?planetasUnicos=' . urlencode(json_encode($planetasUnicos)));
     
 ?>
