@@ -577,6 +577,188 @@ foreach($cliente as $key => $valor){
     echo $key . ' - ' . $valor;
 }
 
+/**
+ * ? Funciones definidas por el usuario
+*/
+
+//declare(strict_types = 1);
+function sumar(int $numero1 = 0, array $numero2): void{
+    echo $numero1 + $numero2;
+}
+
+sumar(10, []);
+
+/**
+ * !Es de buena practica utilizar la palabra reservada void a aquellas funciones que no retorna 
+ * ningun tipo de valor, esto facilita la labor de identificar cual funcion
+ * me retorna y cual funcion no me retorna ningún valor
+*/
+
+/**
+ * ? FUNCONIES QUE RETORNAN VALORES
+*/
+
+/**
+ * Es importante tener en cuenta que para indicar el tipo de dato que va a retornar
+ * la función se debe utilizar los dos puntos seguido de un signo de interrogacion y el tipo de dato
+ * que la funcion debe retornar
+*/
+
+function usuarioAutenticado(bool $autenticado): ?string {
+    return $autenticado ? 'El usuario está autenticado' : null;
+}
+
+$usuario = usuarioAutenticado(false);
+echo $usuario;
+
+/**
+ * ? INCLUDE, REQUIRE, INCLUDE_ONCE, REQUIER_ONCE
+*/
+
+/**
+ * ? INCLUDE E INCLUDE_ONCE
+ * Permiten incluir un archivo PHP en el programa. La diferencia entre ellas es que 
+ * include puede incluir el mismo archivo varias veces mientras que 
+ * include_once asegura que el archivo solo se incluya en el programa solo una vez
+*/
+
+/**
+ * ? REQUIRE Y REQUIRE_ONCE
+ * Son similares a include e include_once, pero en caso de que el archivo no pueda ser
+ * encontrado, se detendra la ejecucion del programa.
+ * Al utilizar Require_once, se asegura que el archivo solo se incluya una vez en el programa
+*/
+
+/**
+ * ?JSON_ENCODE Y JSON_DECODE
+ * La función JSON_ENCODE() en PHP se utiliza para convertir una estructura de datos en PHP 
+ * en una cadena JSON.
+*/
+
+$productos = [
+    [
+        'nombre' => 'balon',
+        'precio' => 250000,
+        'disponible' => true
+    ],
+    [
+        'nombre' => 'gafas',
+        'precio' => 50000,
+        'disponible' => true
+    ],
+    [
+        'nombre' => 'perfume',
+        'precio' => 490000,
+        'disponible' => false
+    ]
+];
+
+/**
+ * La funcion JSON_DECODE() en PHP se utiliza para convertir una cadena JSON en una estructura
+ * de datos PHP. Esta función toma una cadena JSON y la convierte en un objeto, un array asociativo
+ * o un valor escalar segun corresponda
+*/
+
+$json = "{'nombre': 'Jose manuel', 'edad': 18}";
+$data = json_decode($json);
+var_dump($data);
+
+/**
+ * ? POO
+*/
+
+/**
+ * ? PRINCIPALES CONCEPTOS DE LA PROGRAMACION ORIENTADA A OBJETOS
+ * Clase: Es una plantilla para la creación de objetos
+ * Objeto: Es una instancia de una clase
+ * Atributos: Son las propiedades o caracteristicas de un objeto
+ * Métodos: Son las acciones o comportamientos que un objeto puede realizar
+ * Encapsulación: Es el principio que establece que los atributos y metodos relacionados deben
+ * agruparse en una clase para ocultar los detalles internos y exponer solo una interfaz publica.
+ * Esto se logra gracias a los niveles de acceso(Públio, privado, Protegido)
+ * 
+ * Herencia: Es un mecanismo que permite crear nuevas clases basadas en clases existentes.
+ * La clase derivada utiliza como base la clase PADRE o SUPERCLASE.
+ * La herencia permite la reutilizacion de codigo
+ * 
+ * Polimorfismo: Es la capacidad de un objeto de tomar diferentes formas o comportarse de 
+ * diferentes maneras según el contexto. Permite utilizar una interfaz común para objetos de 
+ * diferentes clases y proporciona flexibilidad y extensibilidad en el diseño de programas
+*/
+
+/**
+ * ? Modificadeores de acceso en PHP
+ * Public -> Son accesivles desde cualquier lugar
+ * Private -> Solo son accesibles dentro de la misma clase en la que se definen
+ * Protected -> Son accesibles dentro de la misma clase y desde las clases derivadas
+*/
+
+/**
+ * ? Clases
+*/
+
+class persona {
+
+    public function __construct(private string $nombre, protected int $edad)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+    }
+
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
+    
+    private function saludar(){
+        echo 'Hola, mi nombre es ' . $this->nombre;
+    }
+}
+
+/**
+ *  ? Instanciar CLASES
+*/
+
+$persona1 = new Persona('Marcos', 1);
+
+/**
+ * Acceder a la informacion de la instancia de la clase
+*/
+
+print_r($persona1->__get($name));
+print_r($persona1->__get($edad));
+
+/**
+ * ? Metodos estaticos
+*/
+
+class Animal{
+    private static $especie;
+    public function __construct(public string $nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    public static function saludar(){
+        echo 'Soy de la especie -> ' . self::saludar();
+    }
+}
+
+$animal1 = new Animal('Conejo');
+
+print_r(Animal::saludar());
 
 
-?>
+
+
+
+
+
+
+
+
