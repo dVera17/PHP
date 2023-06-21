@@ -752,13 +752,123 @@ class Animal{
 $animal1 = new Animal('Conejo');
 
 print_r(Animal::saludar());
+/**
+ * ? HERENCIA 
+ * La herencia en programación es un concepto que permite crear nuevas clases basadas en clases
+ * existentes, aprovechando y extendiendo su funcionalidad. La clase existente se conoce como clase
+ * base o clase padre, mientras que la nueva clase creada se llama clase derivada o clase hija.
+*/
 
+/**
+ * Clase base / Clase padre: Es la clase original de la cual se deriva una nueva clase. Define los
+ * atributos y métodos básicos que serán heredados por las clases derivadas.
+ * 
+ * Clase derivada / Clase hija: Es la nueva clase creada que se basa en la clase base. 
+ * Hereda los atributos y métodos de la clase base y puede agregar nuevos atributos y métodos, así como
+ * modificar o ampliar los existentes.
+ * 
+ * Herencia simple y herencia múltiple: La herencia simple se refiere a la relación en la que una
+ * clase derivada hereda de una sola clase base. Por otro lado, la herencia múltiple se refiere a
+ * la relación en la que una clase derivada hereda de múltiples clases base. No todos los lenguajes
+ * de programación admiten la herencia múltiple.
+ * 
+ * Polimorfismo: El polimorfismo es la capacidad de un objeto de una clase derivada para ser
+ * tratado como un objeto de su clase base. Esto permite utilizar una referencia de la clase base
+ * para manipular objetos de diferentes clases derivadas sin tener que conocer la clase concreta
+ * en tiempo de compilación.
+*/
 
+class Transporte{
+    public function __construct(protected int $ruedas, protected int $capacidad){}
+    public function getInfo() : string {
+        return "El transporte tiene " . $this->ruedas . " ruedas y una capacidad de " . $this->capacidad . " personas ";
+    }
 
+    public function getRuedas() : int {
+        return $this->ruedas;
+    }
+}
 
+class Bicicleta extends Transporte{
+    public function getInfo(): string
+    {
+        return "El transporte tiene " . $this->ruedas . "ruedas y una capacidad de " . $this->capacidad . "personas y NO GASTA GASOLINA ";
+    }
+}
 
+class Automovil extends Transporte{
+    public function __construct(protected int $ruedas, protected int $capacidad, protected string $transmision){}
 
+    public function getTransmision(): string{
+        return $this->transmision;
+    }
+}
 
+$bici = new Bicicleta(2,1);
 
+echo $bici->getInfo();
+echo $bici->getRuedas();
 
+$auto1 = new Automovil(4, 5, 'manual');
 
+/**
+ * ? Clases Abstractas
+ * En PHP, una clase abstracta es una clase que no se puede instanciar directamente, sino que sirve
+ * como una plantilla o base para otras clases. Se utiliza para definir la estructura común y los métodos
+ * que deben implementar las clases hijas.
+*/
+
+/**
+ * ! No es posible instanciar una clase abstracta
+*/
+
+abstract class Animal3{
+    abstract public function hacerSonido();
+}
+
+class perro extends Animal3{
+    public function __construct(){}
+    public function hacerSonido()
+    {
+        return "GUAUUUU";
+    }
+}
+
+class gato extends Animal3{
+    public function __construct(){}
+    public function hacerSonido()
+    {
+        return "MEAWWWW";
+    }
+}
+
+$pluto = new Perro();
+$garfield = new Gato();
+
+echo $pluto->hacerSonido();
+echo $garfield->hacerSonido();
+
+/**
+ * ! INTERFACES 
+ * En la programación orientada a objetos, una interfaz es una estructura que define un conjunto de 
+ * métodos que una clase debe implementar. Es un contrato que especifica qué métodos debe proporcionar una clase sin especificar cómo se implementan esos métodos
+*/
+
+interface Figura{
+    public function calcularArea();
+}
+
+class Circulo implements Figura{
+    public function __construct(private float $radio)
+    {
+        
+    }
+
+    public function calcularArea()
+    {
+        return pi() * pow($this->radio, 2);
+    }
+}
+
+$circulo = new Circulo(5);
+echo $circulo->calcularArea();
