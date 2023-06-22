@@ -985,3 +985,53 @@ echo "<pre>";
  * utilizar una clase que aún no ha sido cargada
 */
 
+function autoload($clase){
+    require __DIR__ . '/scripts/' . $clase . '.php';
+}
+
+spl_autoload_register('autoload');
+
+$clase = new Clase(2);
+
+/**
+ * ! NAMESPACE
+ * En PHP, la palabra clave use se utiliza en la definición de espacios de nombres (namespace) para
+ * importar clases, funciones y constantes desde otros espacios de nombres.
+*/
+
+// ? NAMESPACE APP
+
+/**
+ * ! IMPORTAR LOS NAMESPACE A LA CLASE
+*/
+use app\Prueba;
+function my_autoload($clase){
+    $fileclass = explode('\\', $clase);
+    require __DIR__ . '/scripts/' . $fileclass[1] . '.php';
+}
+
+spl_autoload_register('my_autoload');
+
+/**
+ * ! Explicación
+ * Este código PHP muestra un ejemplo de autoloading de clases utilizando el método
+ * spl_autoload_register. Aquí hay una explicación línea por línea:
+ * - La línea 1 y 2 utiliza use para importar las clases Clientes y Detalles del namespace App. Esto
+ * permite utilizar esas clases en el código.
+ * - La función my_autoload se define como una función de carga automática personalizada.
+ * Recibe el nombre de la clase que se está intentando cargar.
+ * - Dentro de la función my_autoload, se divide el nombre de la clase en partes utilizando el
+ * carácter \ como separador. Esto se hace mediante la función explode.
+ * - A continuación, se construye una ruta de archivo utilizando el directorio actual (__DIR__) y la
+ * carpeta "clases". Se agrega el nombre de la clase obtenido anteriormente (la segunda parte
+ * de $fileClass).
+ * - Finalmente, se utiliza la instrucción require para incluir el archivo de clase correspondiente.
+ * - La función spl_autoload_register se utiliza para registrar la función my_autoload como una
+ * función de carga automática. Esto significa que cuando se intente utilizar una clase que no se
+ * haya cargado previamente, PHP llamará a my_autoload para intentar cargarla.
+ * - Se crean objetos de las clases Detalles y Clientes utilizando el operador new. Estos objetos
+ * pueden utilizarse para acceder a los métodos y propiedades definidos en esas clases.
+ */
+
+ 
+
