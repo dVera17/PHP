@@ -872,3 +872,116 @@ class Circulo implements Figura{
 
 $circulo = new Circulo(5);
 echo $circulo->calcularArea();
+
+/**
+ * ! Herencia entre interfaces
+ * En php es posible realizar herencia entre interfaces utilizando la palabra Extends
+*/
+
+interface Figura3D extends Figura{
+    public function calcularVolumen();
+}
+
+class Cubo implements Figura3D{
+    public function __construct(private float $lado){}
+
+    public function calcularArea()
+    {
+        return 6 * pow($this->lado, 2);
+    }
+
+    public function calcularVolumen()
+    {
+        return pow($this->lado, 3);
+    }
+}
+
+$cubo = new Cubo(5);
+echo $cubo->calcularArea();
+echo $cubo->calcularVolumen();
+
+/**
+ * ! Polimorfismo
+ * El polimorfismo en la programación orientada a objetos es un concepto que permite tratar objetos
+ *de diferentes clases de manera uniforme, utilizando una interfaz común. Se basa en la capacidad de
+ * los objetos de una jerarquía de clases de responder de manera diferente a la misma llamada de
+ * método.
+*/
+
+/**
+ * El polimorfismo se utiliza para crear código más flexible y modular, ya que permite escribir código
+ * que pueda manejar diferentes tipos de objetos de manera genérica sin preocuparse por los detalles
+ * específicos de cada clase.
+*/
+
+interface TransporteInterfaz{
+    public function getInfo() : string;
+    public function getRuedas(): int;
+}
+
+class Trasnporte implements TransporteInterfaz{
+    public function __construct(protected int $ruedas, protected int $capacidad)
+    {
+        
+    }
+
+    public function getInfo(): string
+    {
+        return 'El transporte tiene ' . $this->ruedas . ' ruedas y una capacidad de ' . $this->capacidad . ' personas';
+    }
+
+    public function getRuedas(): int
+    {
+        return $this->ruedas;
+    }
+}
+
+class Automovil2 extends Trasnporte implements TransporteInterfaz{
+    public function __construct(protected int $ruedas, protected int $capacidad, protected string $color)
+    {
+        
+    }
+
+    public function getInfo(): string
+    {
+        return 'El transporte AUTO tiene ' . $this->ruedas . ' ruedas y una capacidad de ' . $this->capacidad . ' personas y es de color ' . 
+        $this->color;
+    }
+
+    public function getRuedas(): int
+    {
+        return $this->ruedas;
+    }
+
+    public function getColor(): string{
+        return $this->color;
+    }
+}
+
+echo "<pre>";
+var_dump($trasnporte = new Trasnporte(8, 20));
+var_dump($auto3 = new Automovil2(4, 5, 'rojo'));
+
+echo $trasnporte->getInfo();
+echo "<br>";
+
+echo $auto3->getInfo();
+echo "<br>";
+
+echo $auto3->getColor();
+echo "<pre>";
+
+/**
+ * ! AUTOLOAD
+ * En PHP, el autoloading (carga automática) es una técnica que permite cargar automáticamente las
+ * clases cuando son necesarias, sin tener que incluir manualmente los archivos de clase en cada punto
+ * del código. Esto facilita el desarrollo y el mantenimiento del código, ya que no es necesario
+ * preocuparse por incluir los archivos de clase de forma explícita.
+*/
+
+/**
+ * El autoloading en PHP se basa en la función spl_autoload_register(), que permite registrar una o
+ * varias funciones de autoload. Estas funciones se ejecutan automáticamente cuando se intenta
+ * utilizar una clase que aún no ha sido cargada
+*/
+
