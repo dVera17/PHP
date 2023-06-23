@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 header('Content-Type: application/json');
 // Funciones para imprimir en el html
 
@@ -985,13 +988,13 @@ echo "<pre>";
  * utilizar una clase que aún no ha sido cargada
 */
 
-function autoload($clase){
-    require __DIR__ . '/scripts/' . $clase . '.php';
-}
+// function autoload($clase){
+//     require __DIR__ . '/scripts/' . $clase . '.php';
+// }
 
-spl_autoload_register('autoload');
+// spl_autoload_register('autoload');
 
-$clase = new Clase(2);
+// $clase = new Clase(2);
 
 /**
  * ! NAMESPACE
@@ -1004,13 +1007,13 @@ $clase = new Clase(2);
 /**
  * ! IMPORTAR LOS NAMESPACE A LA CLASE
 */
-use app\Prueba;
-function my_autoload($clase){
-    $fileclass = explode('\\', $clase);
-    require __DIR__ . '/scripts/' . $fileclass[1] . '.php';
-}
+// use app\Prueba;
+// function my_autoload($clase){
+//     $fileclass = explode('\\', $clase);
+//     require __DIR__ . '/scripts/' . $fileclass[1] . '.php';
+// }
 
-spl_autoload_register('my_autoload');
+// spl_autoload_register('my_autoload');
 
 /**
  * ! Explicación
@@ -1047,8 +1050,7 @@ spl_autoload_register('my_autoload');
  * 2. Ejecutar el comando composer init
 */
 
-
-
 /**
  * ! BASES DE DATOS RELAIONALES
 */
+
