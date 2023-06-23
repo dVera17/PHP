@@ -1031,7 +1031,24 @@ spl_autoload_register('my_autoload');
  * haya cargado previamente, PHP llamará a my_autoload para intentar cargarla.
  * - Se crean objetos de las clases Detalles y Clientes utilizando el operador new. Estos objetos
  * pueden utilizarse para acceder a los métodos y propiedades definidos en esas clases.
- */
+*/
 
- 
 
+/**
+ * ! COMPOSER
+ * Composer es un administrador de dependencias para PHP que permite instalar librerías de terceros
+ * para facilitar el desarrollo con php. Componser es el equivalente a npm para node JS
+*/
+
+/**
+ * ! PASOS
+ * Inicializar Composer en el proyecto.
+ * 1. Abrir el proyecto
+ * 2. Ejecutar el comando composer init
+*/
+
+
+
+/**
+ * ! BASES DE DATOS RELAIONALES
+*/
